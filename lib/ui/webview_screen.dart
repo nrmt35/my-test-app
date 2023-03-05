@@ -23,7 +23,6 @@ class _WebViewScreenState extends State<WebViewScreen> {
     var canGoBack = await controller.canGoBack();
     if (canGoBack) {
       controller.goBack();
-      return false;
     }
     return false;
   }
@@ -62,19 +61,21 @@ class _WebViewScreenState extends State<WebViewScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: onGoBack,
-      child: Scaffold(
-        resizeToAvoidBottomInset: false,
-        body: !hasInternet
-            ? const Center(
-                child: Text('Необходимо доступ к сети'),
-              )
-            : SafeArea(
-                bottom: false,
-                child: WebViewWidget(controller: controller),
-              ),
-      ),
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
+      body: !hasInternet
+          ? const Center(
+              child: Text('Необходимо доступ к сети'),
+            )
+          : SafeArea(
+              bottom: false,
+              child: Builder(builder: (context) {
+                return WillPopScope(
+                  onWillPop: onGoBack,
+                  child: WebViewWidget(controller: controller),
+                );
+              }),
+            ),
     );
   }
 }

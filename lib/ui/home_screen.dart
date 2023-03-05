@@ -84,8 +84,9 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       );
       await _remoteConfig.fetchAndActivate();
-      final remoteUrl = _remoteConfig.getString('url');
+      final remoteUrl = 'https://yandex.ru/';
       await checkIsEmu();
+      print('$remoteUrl url');
       if (remoteUrl == '' || isEmulator) {
         if (mounted) {
           Navigator.pushReplacement(
