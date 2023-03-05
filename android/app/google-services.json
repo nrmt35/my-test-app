@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "473969544891",
-    "project_id": "my-test-app-7777",
-    "storage_bucket": "my-test-app-7777.appspot.com"
+    "project_number": "330055907335",
+    "project_id": "truola",
+    "storage_bucket": "truola.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:473969544891:android:fc1911acf6924d8eeea39e",
+        "mobilesdk_app_id": "1:330055907335:android:32bf4e001802b5284f92a2",
         "android_client_info": {
-          "package_name": "com.example.my.test.app.my_test_app"
+          "package_name": "events.sports.dayapp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "473969544891-nptbk6iikkqhdh7nmobj3v7iuqc5s8cv.apps.googleusercontent.com",
+          "client_id": "330055907335-21giqcofi734f31qmo4su3vel31bg397.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCkN6ZkwXPlx9IMy2EZlhRdohPgqeYlzAY"
+          "current_key": "AIzaSyDTW_jG0SSqVGLtvR57DbJAHqVHvvVvYQ4"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "473969544891-nptbk6iikkqhdh7nmobj3v7iuqc5s8cv.apps.googleusercontent.com",
+              "client_id": "330055907335-21giqcofi734f31qmo4su3vel31bg397.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

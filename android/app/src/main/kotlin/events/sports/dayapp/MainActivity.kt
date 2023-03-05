@@ -1,4 +1,4 @@
-package com.example.my.test.app.my_test_app
+package events.sports.dayapp
 
 import io.flutter.embedding.android.FlutterActivity
 

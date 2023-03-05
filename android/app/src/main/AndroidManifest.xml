@@ -1,10 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.my.test.app.my_test_app">
+    package="events.sports.dayapp">
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.CAMERA" />
     <application
-        android:label="my_test_app"
+        android:label="Ставки"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

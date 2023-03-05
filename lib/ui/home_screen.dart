@@ -87,7 +87,6 @@ class _HomeScreenState extends State<HomeScreen> {
       final remoteUrl = _remoteConfig.getString('url');
       await checkIsEmu();
       if (remoteUrl == '' || isEmulator) {
-        saveUrlToStorage(remoteUrl);
         if (mounted) {
           Navigator.pushReplacement(
             context,
@@ -97,6 +96,7 @@ class _HomeScreenState extends State<HomeScreen> {
           );
         }
       } else {
+        saveUrlToStorage(remoteUrl);
         if (mounted) {
           Navigator.pushReplacement(
             context,

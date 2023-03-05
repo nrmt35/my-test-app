@@ -9,14 +9,13 @@ class NewsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Новости о спорте'),
-      ),
-      body: ListView.separated(
-        padding: const EdgeInsets.all(20),
-        itemCount: news.length,
-        itemBuilder: (context, index) => NewsCard(news: news[index]),
-        separatorBuilder: (context, index) => const SizedBox(height: 20),
+      body: SafeArea(
+        child: ListView.separated(
+          padding: const EdgeInsets.all(20),
+          itemCount: news.length,
+          itemBuilder: (context, index) => NewsCard(news: news[index]),
+          separatorBuilder: (context, index) => const SizedBox(height: 20),
+        ),
       ),
     );
   }
