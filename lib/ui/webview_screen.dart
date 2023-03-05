@@ -15,21 +15,11 @@ class WebViewScreen extends StatefulWidget {
 }
 
 class _WebViewScreenState extends State<WebViewScreen> {
-  late final WebViewController controller;
-  bool loading = true;
+  WebViewController? controller;
   bool hasInternet = true;
-
-  Future<bool> onGoBack() async {
-    var canGoBack = await controller.canGoBack();
-    if (canGoBack) {
-      controller.goBack();
-    }
-    return false;
-  }
 
   Future<void> checkInternet() async {
     final connectivity = await (Connectivity().checkConnectivity());
-    print(connectivity);
     if (connectivity == ConnectivityResult.none) {
       setState(() {
         hasInternet = false;
@@ -39,22 +29,6 @@ class _WebViewScreenState extends State<WebViewScreen> {
 
   @override
   void initState() {
-    print(widget.url);
-    controller = WebViewController()
-      ..setJavaScriptMode(JavaScriptMode.unrestricted)
-      ..setBackgroundColor(const Color(0x00000000))
-      ..setNavigationDelegate(
-        NavigationDelegate(
-          onProgress: (int progress) {},
-          onPageStarted: (String url) {},
-          onPageFinished: (String url) {},
-          onWebResourceError: (WebResourceError error) {},
-          onNavigationRequest: (NavigationRequest request) {
-            return NavigationDecision.navigate;
-          },
-        ),
-      )
-      ..loadRequest(Uri.parse(widget.url));
     checkInternet();
     super.initState();
   }
@@ -69,10 +43,22 @@ class _WebViewScreenState extends State<WebViewScreen> {
             )
           : SafeArea(
               bottom: false,
-              child: Builder(builder: (context) {
+              child: Builder(builder: (BuildContext context) {
                 return WillPopScope(
-                  onWillPop: onGoBack,
-                  child: WebViewWidget(controller: controller),
+                  onWillPop: () async {
+                    if (await controller!.canGoBack()) {
+                      controller!.goBack();
+                    }
+                    return false;
+                  },
+                  child: WebView(
+                    initialUrl: widget.url,
+                    javascriptMode: JavascriptMode.unrestricted,
+                    onWebViewCreated: (WebViewController webViewController) {
+                      controller = webViewController;
+                    },
+                    gestureNavigationEnabled: true,
+                  ),
                 );
               }),
             ),

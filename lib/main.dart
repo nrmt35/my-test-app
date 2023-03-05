@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       restorationScopeId: 'app',
-      title: 'My test app',
+      title: 'Ставки',
       home: HomeScreen(),
     );
   }
